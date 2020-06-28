@@ -1,0 +1,5 @@
+package com.smartfoodhcmut.dao.impl;
+
+public class FoodsDAO {
+
+}

@@ -1,0 +1,5 @@
+package com.smartfoodhcmut.model;
+
+public class UserModel {
+
+}

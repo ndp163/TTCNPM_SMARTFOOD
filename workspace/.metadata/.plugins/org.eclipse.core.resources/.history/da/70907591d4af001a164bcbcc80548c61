@@ -1,0 +1,5 @@
+package com.smartfoodhcmut.controller.web;
+
+public class HomeController {
+
+}

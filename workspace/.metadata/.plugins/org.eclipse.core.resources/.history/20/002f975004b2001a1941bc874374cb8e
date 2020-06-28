@@ -1,0 +1,70 @@
+package com.smartfoodhcmut.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.smartfoodhcmut.dao.IFoodsDAO;
+import com.smartfoodhcmut.mapper.FoodsMapper;
+import com.smartfoodhcmut.model.FoodsModel;
+
+public class FoodsDAO extends AbstractDAO<FoodsModel> implements IFoodsDAO {
+	
+	@Override
+	public List<FoodsModel> findByCategoryId(Long categoryId) {
+		String sql = "SELECT * FROM foods WHERE categoryid = ?";
+		return query(sql, new FoodsMapper(), categoryId);
+	}
+
+	@Override
+	public Long save(FoodsModel foodsModel) {
+		ResultSet resultSet = null;
+		Long id = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+			String sql = "INSERT INTO foods (title, content, categoryid) VALUES(?, ?, ?)";
+			connection = getConnection();
+			connection.setAutoCommit(false);
+			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			statement.setString(1, foodsModel.getTitle());
+			statement.setString(2, foodsModel.getContent());
+			statement.setLong(3, foodsModel.getCategoryId());
+			statement.executeUpdate();
+			resultSet = statement.getGeneratedKeys();
+			if (resultSet.next()) {
+				id = resultSet.getLong(1);
+			}
+			connection.commit();
+			return id;
+		} catch (SQLException e) {
+			if (connection != null) {
+				try {
+					connection.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+			return null;
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+				if (resultSet != null) {
+					resultSet.close();
+				}
+			} catch (SQLException e) {
+				return null;
+			}
+		}
+	}
+
+}

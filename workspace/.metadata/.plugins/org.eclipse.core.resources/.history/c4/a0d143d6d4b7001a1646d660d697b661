@@ -1,0 +1,74 @@
+package com.smartfoodhcmut.controller.admin.api;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+@WebServlet("/ThumbnailUpload")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2,
+			maxFileSize = 1024 * 1024 * 10,
+			maxRequestSize = 1024 * 1024 * 50)
+
+public class ThumbnailUpload extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	private static final String SAVE_DIR="D:\\CNPM-SmartFood-master\\CNPM-SmartFood-master\\workspace\\smartfood-06-2020\\src\\main\\webapp\\views\\web\\image\\";
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		Part part = request.getPart("thumbnail");
+		String fileName = extractFileName(part);
+		String savePath = SAVE_DIR + fileName;
+		part.write(savePath + File.separator); 
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/smartfood062020", "root", "12345687");
+			conn.setAutoCommit(false);
+			if (fileName != null && fileName.length() > 0) {
+				String Path = savePath.substring(savePath.indexOf("\\views"));
+				this.writeToDB(conn, Path);
+			}
+			conn.commit();
+		} catch (Exception e) {
+			out.println(e);
+		} finally {
+			response.sendRedirect(request.getContextPath()+"/admin-foods?type=list&page=1&maxPageItem=2&sortName=id&sortBy=asc");
+		}			
+	}
+		
+	private String extractFileName(Part part) {
+		String contentDisp = part.getHeader("content-disposition");
+		String[] items = contentDisp.split(";");
+		for (String s : items) {
+			if (s.trim().startsWith("filename")) {
+				return s.substring(s.indexOf("=") + 2, s.length() - 1);
+			}
+		}
+		return null;
+	}
+	private void writeToDB(Connection conn, String savePath, int id) throws SQLException {
+		String sql = "UPDATE foods SET thumbnail = ? WHERE id = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, savePath);
+		ps.executeUpdate();
+	}	
+}
+

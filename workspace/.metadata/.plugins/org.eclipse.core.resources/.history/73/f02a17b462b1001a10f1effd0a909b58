@@ -1,0 +1,5 @@
+package com.smartfoodhcmut.controller.admin;
+
+public class FoodsController {
+
+}

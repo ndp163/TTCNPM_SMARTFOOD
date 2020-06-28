@@ -1,0 +1,7 @@
+package com.smartfoodhcmut.dao.impl;
+
+import com.smartfoodhcmut.dao.GenericDAO;
+
+public class AbstractDAO implements GenericDAO {
+
+}

@@ -1,0 +1,8 @@
+package com.smartfoodhcmut.model;
+
+public class OrderModel {
+	private int id;
+	private UserModel customer;
+	private List<Items> items;
+	private int status;
+}

@@ -1,0 +1,28 @@
+package com.smartfoodhcmut.service.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import com.smartfoodhcmut.dao.IFoodsDAO;
+import com.smartfoodhcmut.model.FoodsModel;
+import com.smartfoodhcmut.service.IFoodsService;
+
+public class FoodsService implements IFoodsService {
+
+	@Inject
+	private IFoodsDAO foodsDao;
+	
+	@Override
+	public List<FoodsModel> findByCategoryId(Long categoryId) {
+		return foodsDao.findByCategoryId(categoryId);
+	}
+
+	@Override
+	public FoodsModel save(FoodsModel foodsModel) {
+		Long foodId = foodsDao.save(foodsModel);
+		
+		return foodsDao;
+	}
+
+}

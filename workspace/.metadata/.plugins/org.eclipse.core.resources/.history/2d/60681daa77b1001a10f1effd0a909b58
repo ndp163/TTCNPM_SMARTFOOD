@@ -1,0 +1,40 @@
+package com.smartfoodhcmut.service.impl;
+
+import java.util.List;
+
+import com.smartfoodhcmut.model.FoodsModel;
+import com.smartfoodhcmut.service.INewsService;
+
+public class NewsService implements INewsService {
+
+	@Override
+	public List<FoodsModel> findByCategoryId(Long categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FoodsModel save(FoodsModel newModel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FoodsModel update(FoodsModel updateFoods) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(long[] ids) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<FoodsModel> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

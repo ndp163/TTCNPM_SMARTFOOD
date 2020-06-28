@@ -1,0 +1,61 @@
+package com.smartfoodhcmut.dao.impl;
+
+import java.util.List;
+import com.smartfoodhcmut.dao.IFoodsDAO;
+import com.smartfoodhcmut.mapper.FoodsMapper;
+import com.smartfoodhcmut.model.FoodsModel;
+
+public class FoodsDAO extends AbstractDAO<FoodsModel> implements IFoodsDAO {
+
+
+
+	@Override
+	public List<FoodsModel> findByCategoryId(Long categoryId) {
+		String sql = "SELECT * FROM news WHERE categoryid = ?";
+		return query(sql, new FoodsMapper(), categoryId);
+	}
+	
+
+	@Override
+	public Long save(FoodsModel foodsModel) {
+		StringBuilder sql = new StringBuilder("INSERT INTO news (title, content,");
+		sql.append(" thumbnail, shortdescription, categoryid, createddate, createdby)");
+		sql.append(" VALUES(?, ?, ?, ?, ?, ?, ?)");
+		return insert(sql.toString(), foodsModel.getTitle(), foodsModel.getContent(), 
+				foodsModel.getThumbnail(), foodsModel.getShortDescription(), foodsModel.getCategoryId(),
+				foodsModel.getCreatedDate(), foodsModel.getCreatedBy());
+	}
+
+	@Override
+	public FoodsModel findOne(Long id) {
+		String sql = "SELECT * FROM foods WHERE id = ?";
+		List<FoodsModel> foods = query(sql, new FoodsModel(), id);
+		return foods.isEmpty() ? null : foods.get(0);
+	}	
+	
+	@Override
+	public void update(FoodsModel updateFoods) {
+		StringBuilder sql = new StringBuilder("UPDATE foods SET title = ?, thumbnail = ?,");
+		sql.append(" shortdescription = ?, content = ?, categoryid = ?");
+		sql.append(" createddate = ?, createdby = ?, modifieddate = ?, modifiedby = ? WHERE id = ?");
+		update(sql.toString(), updateFoods.getTitle(), updateFoods.getThumbnail(), updateFoods.getShortDescription(),
+				updateFoods.getContent(), updateFoods.getCategoryId(), updateFoods.getCreatedDate(), 
+				updateFoods.getCreatedBy(), updateFoods.getModifiedDate(), 
+				updateFoods.getModifiedBy(), updateFoods.getId());
+		
+	}
+
+	@Override
+	public void delete(long id) {
+		String sql = "DELETE FROM foods WHERE id = ?";
+		update(sql, id);
+		
+	}
+
+	@Override
+	public List<FoodsModel> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

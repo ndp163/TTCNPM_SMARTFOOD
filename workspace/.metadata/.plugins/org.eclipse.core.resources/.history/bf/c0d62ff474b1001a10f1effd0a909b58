@@ -1,0 +1,48 @@
+package com.smartfoodhcmut.dao.impl;
+
+import java.util.List;
+
+import com.smartfoodhcmut.dao.IFoodsDAO;
+import com.smartfoodhcmut.mapper.FoodsMapper;
+import com.smartfoodhcmut.model.FoodsModel;
+
+public class FoodsDAO extends AbstractDAO<FoodsModel> implements IFoodsDAO {
+
+	@Override
+	public FoodsModel findOne(Long id) {
+		String sql = "SELECT * FROM foods WHERE id = ?";
+		List<FoodsModel> foods = query(sql, new FoodsModel(), id);
+		return foods.isEmpty() ? null : news.get(0);
+	}
+
+	@Override
+	public List<FoodsModel> findByCategoryId(Long categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long save(FoodsModel newModel) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(FoodsModel updateNew) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<FoodsModel> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

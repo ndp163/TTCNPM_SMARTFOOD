@@ -1,0 +1,58 @@
+package com.smartfoodhcmut.service.impl;
+
+import java.sql.Timestamp;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import com.smartfoodhcmut.dao.ICategoryDAO;
+import com.smartfoodhcmut.dao.IFoodsDAO;
+import com.smartfoodhcmut.model.FoodsModel;
+import com.smartfoodhcmut.service.IFoodsService;
+
+public class FoodsService implements IFoodsService {
+
+	@Inject
+	private IFoodsDAO foodsDao;
+
+	@Inject
+	private ICategoryDAO categoryDAO;
+
+	@Override
+	public List<FoodsModel> findByCategoryId(Long categoryId) {
+		return foodsDao.findByCategoryId(categoryId);
+	}
+
+	@Override
+	public FoodsModel save(FoodsModel foodsModel) {
+		foodsModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
+		foodsModel.setCreatedBy("");
+		Long foodsId = foodsDao.save(foodsModel);
+		return foodsDao.findOne(foodsId);
+	}
+
+	@Override
+	public FoodsModel update(FoodsModel updateFoods) {
+		FoodsModel oldFoods = foodsDao.findOne(updateFoods.getId());
+		updateFoods.setCreatedDate(oldFoods.getCreatedDate());
+		updateFoods.setCreatedBy(oldFoods.getCreatedBy());
+		updateFoods.setModifiedDate(new Timestamp(System.currentTimeMillis()));
+		updateFoods.setModifiedBy("");
+		foodsDao.update(updateFoods);
+		return foodsDao.findOne(updateFoods.getId());
+	}
+
+	@Override
+	public void delete(long[] ids) {
+		for (long id: ids) {
+			//1.delete comment (khoa ngoai food_id)
+			//2.delete foods
+			foodsDao.delete(id);
+		}
+	}
+
+	@Override
+	public List<FoodsModel> findAll() {
+		return foodsDao.findAll();
+	}
+}

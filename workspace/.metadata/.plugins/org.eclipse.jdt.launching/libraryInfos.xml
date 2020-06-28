@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="/usr/lib/jvm/java-11-openjdk-amd64" version="11.0.7"/>
+    <libraryInfo home="E:\javaJDK8" version="1.8.0_191">
+        <bootpath>
+            <entry path="E:\javaJDK8\lib\resources.jar"/>
+            <entry path="E:\javaJDK8\lib\rt.jar"/>
+            <entry path="E:\javaJDK8\lib\sunrsasign.jar"/>
+            <entry path="E:\javaJDK8\lib\jsse.jar"/>
+            <entry path="E:\javaJDK8\lib\jce.jar"/>
+            <entry path="E:\javaJDK8\lib\charsets.jar"/>
+            <entry path="E:\javaJDK8\lib\jfr.jar"/>
+            <entry path="E:\javaJDK8\classes"/>
+        </bootpath>
+        <extensionDirs>
+            <entry path="E:\javaJDK8\lib\ext"/>
+            <entry path="C:\Windows\Sun\Java\lib\ext"/>
+        </extensionDirs>
+        <endorsedDirs>
+            <entry path="E:\javaJDK8\lib\endorsed"/>
+        </endorsedDirs>
+    </libraryInfo>
+</libraryInfos>

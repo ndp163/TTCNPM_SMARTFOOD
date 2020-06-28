@@ -1,0 +1,42 @@
+1592288662661	Delete element
+1592314143961	Copy compilation unit
+1592314316928	Copy file
+1592371703077	Copy files
+1592411847490	Delete elements
+1592467843255	Copy compilation unit
+1592468659028	Copy compilation unit
+1592469084084	Copy compilation unit
+1592469142070	Copy compilation unit
+1592482047073	Delete element
+1592482101957	Delete element
+1592482118292	Delete element
+1592482141770	Delete element
+1592489526135	Delete element
+1592493810169	Rename type 'NewsService'
+1592496413706	Rename type 'INewsService'
+1592498641941	Delete element
+1592532847702	Rename type 'ICategoryService'
+1592533043327	Delete element
+1592533063481	Rename type 'CategorySerfvice'
+1592539046154	Delete element
+1592539056398	Delete element
+1592539449344	Delete element
+1592542276552	Delete element
+1592542519303	Delete element
+1592546095973	Delete element
+1592612718601	Encapsulate field 'page'
+1592612823929	Encapsulate field 'maxPageITem'
+1592612830074	Encapsulate field 'totalPage'
+1592615065954	Encapsulate field 'totalItem'
+1592618982670	Infer generic type arguments
+1592629063436	Encapsulate field 'sortName'
+1592629067164	Encapsulate field 'sortBy'
+1592629187943	Encapsulate field 'sorter'
+1592643107172	Copy file
+1592645222218	Delete element
+1592647089263	Copy compilation unit
+1592647252019	Copy compilation unit
+1592647277059	Copy compilation unit
+1592647656214	Copy compilation unit
+1592648017668	Encapsulate field 'role'
+1592665786269	Rename type 'AuthenticationFilter'

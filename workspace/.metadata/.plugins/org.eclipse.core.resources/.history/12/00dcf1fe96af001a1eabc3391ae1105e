@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="smartfood-06-2020">
+        <property name="context-root" value="smartfood-06-2020"/>
+    </wb-module>
+</project-modules>

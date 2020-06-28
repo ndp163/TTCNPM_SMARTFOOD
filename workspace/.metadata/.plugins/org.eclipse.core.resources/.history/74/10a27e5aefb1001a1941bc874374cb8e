@@ -1,0 +1,7 @@
+package com.smartfoodhcmut.service.impl;
+
+import com.smartfoodhcmut.service.IFoodsService;
+
+public class FoodsService implements IFoodsService {
+
+}

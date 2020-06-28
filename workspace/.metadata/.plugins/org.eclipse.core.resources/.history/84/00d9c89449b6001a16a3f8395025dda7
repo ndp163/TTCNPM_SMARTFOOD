@@ -1,0 +1,72 @@
+package com.smartfoodhcmut.controller.admin.api;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.smartfoodhcmut.model.FoodsModel;
+import com.smartfoodhcmut.model.UserModel;
+import com.smartfoodhcmut.service.IFoodsService;
+import com.smartfoodhcmut.utils.HttpUtil;
+import com.smartfoodhcmut.utils.SessionUtil;
+
+@WebServlet(urlPatterns = {"/api-admin-foods"})
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, 
+maxFileSize = 1024 * 1024 * 10, 
+maxRequestSize = 1024 * 1024 * 50) 
+public class FoodsAPI extends HttpServlet {
+
+	@Inject
+	private IFoodsService foodsService;
+	private static final long serialVersionUID = 2535844104962403259L;
+	
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		 InputStream inputStream = null; // input stream of the upload file
+         
+	        // obtains the upload file part in this multipart request
+	        Part filePart = request.getPart("photo");
+	        if (filePart != null) {
+	            // prints out some information for debugging
+	            System.out.println(filePart.getName());
+	            System.out.println(filePart.getSize());
+	            System.out.println(filePart.getContentType());
+	             
+	            // obtains input stream of the upload file
+	            inputStream = filePart.getInputStream();
+	        }
+	         
+	       
+	}
+
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		FoodsModel updateFoods = HttpUtil.of(request.getReader()).toModel(FoodsModel.class);
+		updateFoods.setCreatedBy(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getUserName());
+		updateFoods = foodsService.update(updateFoods);
+		mapper.writeValue(response.getOutputStream(), updateFoods);
+
+	}
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		FoodsModel foodsModel = HttpUtil.of(request.getReader()).toModel(FoodsModel.class);
+		foodsService.delete(foodsModel.getIds());
+		mapper.writeValue(response.getOutputStream(), "{}");
+	}
+}

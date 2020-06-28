@@ -1,0 +1,10 @@
+package com.smartfoodhcmut.dao.impl;
+
+import java.util.List;
+import com.smartfoodhcmut.dao.IFoodsDAO;
+import com.smartfoodhcmut.mapper.FoodsMapper;
+import com.smartfoodhcmut.model.FoodsModel;
+
+public class FoodsDAO implements IFoodsDAO {
+
+}
