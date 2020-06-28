@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+</head>
+<body>
+<form action="dang-ky" method="post">
+Họ và Tên : <br><input type="text" name="fullname"/><br>
+Tên đăng nhập: <br><input type="email" name="username"><br>
+Mật khẩu: <br><input type="password" name="password"><br>
+<input type="submit" value="Registraton">
+</form>
+</body>
+</html>

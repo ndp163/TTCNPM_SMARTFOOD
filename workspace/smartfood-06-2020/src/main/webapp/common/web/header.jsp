@@ -23,12 +23,17 @@
 						<a class="nav-link" href='<c:url value="/thoat?action=logout"/>'>Đăng xuất</a>
 					</li>
 				</c:if>
-
 				<c:if test="${empty USERMODEL}">
 					<li class="nav-item">
 						<a class="nav-link" href='<c:url value="/dang-nhap?action=login"/>'>Đăng nhập</a>
 					</li>
 				</c:if>
+				<c:if test="${empty USERMODEL}">
+					<li class="nav-item">
+						<a class="nav-link" href='<c:url value="/dang-ky?action=register"/>'>Đăng ký</a>
+					</li>
+				</c:if>
+				
 			</ul>
 		</div>
 	</div>
