@@ -1,8 +1,9 @@
 package com.smartfoodhcmut.controller.web;
 
 import java.io.IOException;
-import java.sql.*;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,40 +12,41 @@ import javax.servlet.http.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.smartfoodhcmut.model.UserModel;
+import com.smartfoodhcmut.service.IUserService;
+import com.smartfoodhcmut.utils.FormUtil;
+import com.smartfoodhcmut.utils.SessionUtil;
+
 @WebServlet(urlPatterns = {"/dang-ky"})
 public class RegisterController extends HttpServlet {
 	@Inject
 	private static final long serialVersionUID = 2686801510274002166L;
-	
-	String DB_CONNECTION_URL="jdbc:mysql://localhost:3306/db";
+	private IUserService userService;
+
+	String DB_CONNECTION_URL="jdbc:mysql://localhost:3306/smartfood062020";
 	String DB_USERNAME="root";
 	String DB_PASSWORD="Dung2000";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getParameter("action");
-		if (action != null && action.equals("register")) {
 			RequestDispatcher rd = request.getRequestDispatcher("/views/register.jsp");
 			rd.forward(request, response);
-		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			String fullname=request.getParameter("fullname");
 			String username=request.getParameter("username");
 			String password=request.getParameter("password");
+			if(fullname != null && username !=null&&password!=null) {
 			try{
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con=DriverManager.getConnection(DB_CONNECTION_URL, DB_USERNAME, DB_PASSWORD);
-				PreparedStatement ps=con.prepareStatement("insert into user(fullname,username,password,roleid) values(?,?,?,1)");
-				ps.setString(1, fullname);
-				ps.setString(2, username);
+				PreparedStatement ps=con.prepareStatement("INSERT INTO user(username, password, fullname, status, roleid) VALUES (?,?,?,?,?)");
+				ps.setString(1, username);
+				ps.setString(2, fullname);
 				ps.setString(3, password);
-				int re=ps.executeUpdate();
-				if(re==1){
-					response.sendRedirect("hello.html");
-				}
-				else{
-					response.sendRedirect("error.html");
-				}
-			}catch(Exception e){
+				ps.setInt(4,1);
+				ps.setInt(5, 2);
+				response.sendRedirect("/views/web/home.jsp");
+			}catch(Exception ex){
 		}
+	}
 	}
 }
