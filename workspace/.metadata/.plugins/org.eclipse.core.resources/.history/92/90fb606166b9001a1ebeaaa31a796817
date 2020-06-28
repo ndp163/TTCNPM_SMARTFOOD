@@ -38,7 +38,7 @@ public class RegisterController extends HttpServlet {
 				ps.setInt(5, 2);
 				int i =ps.executeUpdate();
 				if(i>0)
-					response.sendRedirect("http://localhost:8080/dang-nhap?action=login");
+					response.sendRedirect("/views/web/home.jsp");
 			}catch(Exception ex){
 		}
 	}

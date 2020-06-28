@@ -12170,3 +12170,7 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact javax.servlet
 2020-06-29 00:34:36,004 [Worker-121: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
 2020-06-29 00:34:36,005 [Worker-121: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2020-06-29 00:34:36,005 [Worker-121: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/d/Desktop/web/TTCNPM_SMARTFOOD/workspace/smartfood-06-2020/src/test/resources
+2020-06-29 00:39:56,173 [Worker-136: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-06-29 00:39:56,174 [Worker-136: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2020-06-29 00:39:56,175 [Worker-136: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-06-29 00:39:56,175 [Worker-136: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/d/Desktop/web/TTCNPM_SMARTFOOD/workspace/smartfood-06-2020/src/test/resources

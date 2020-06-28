@@ -127,3 +127,14 @@
 0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:35:37 +0700] "GET /dang-nhap?action=login HTTP/1.1" 200 1298
 0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:36:45 +0700] "POST /dang-nhap HTTP/1.1" 302 -
 0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:36:45 +0700] "GET /trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc HTTP/1.1" 200 12797
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:39:44 +0700] "GET /thoat?action=logout HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:39:44 +0700] "GET /trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc HTTP/1.1" 200 12822
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:39:46 +0700] "GET /dang-nhap?action=login HTTP/1.1" 200 1298
+127.0.0.1 - - [29/Jun/2020:00:40:12 +0700] "GET / HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:40:13 +0700] "GET / HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:40:14 +0700] "GET /trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc HTTP/1.1" 200 12822
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:40:16 +0700] "GET /dang-ky?action=register HTTP/1.1" 200 1271
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:40:21 +0700] "POST /dang-ky HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:40:21 +0700] "GET /dang-nhap?action=login HTTP/1.1" 200 1298
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:40:29 +0700] "POST /dang-nhap HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:00:40:29 +0700] "GET /trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc HTTP/1.1" 200 12794
