@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.ResourceBundle;
+
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class RegisterController extends HttpServlet {
 	@Inject
 	private static final long serialVersionUID = 2686801510274002166L;
+	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
 	String DB_CONNECTION_URL="jdbc:mysql://localhost:3306/smartfood062020";
 	String DB_USERNAME="root";
 	String DB_PASSWORD="Dung2000";
@@ -39,7 +42,11 @@ public class RegisterController extends HttpServlet {
 				int i =ps.executeUpdate();
 				if(i>0)
 					response.sendRedirect("http://localhost:8080/dang-nhap?action=login");
+				else {
+					response.sendError(400);
+				}
 			}catch(Exception ex){
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST,"The username already exists");
 		}
 	}
 	}

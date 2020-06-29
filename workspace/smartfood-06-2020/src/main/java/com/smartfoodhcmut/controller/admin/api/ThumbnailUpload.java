@@ -32,7 +32,7 @@ public class ThumbnailUpload extends HttpServlet {
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/smartfood062020", "root", "12345687");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/smartfood062020", "root", "Dung2000");
 			conn.setAutoCommit(false);
 			
 			Part part = request.getPart("thumbnail");
