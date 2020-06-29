@@ -8,22 +8,25 @@
 
 </head>
 <body>
-	<form action="<c:url value='/trang-chu'/>" id="formSubmit" method="get">
+<form action="<c:url value='/trang-chu'/>" id="formSubmit" method="get">
+      	<br>
+		<br>
+		<br>
     <div class="row">
-      <div class="col-lg-3">
-        <h1 class="my-4">Loại món ăn</h1>
+    
+      <div class="col-lg-3 list-group">
+        <h1 class="my-4" style="color:black">Loại món ăn</h1>
         <div class="list-group">
-          <a href='<c:url value="/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc"/>' class="list-group-item">Tất cả</a>
-          <a href='<c:url value="/trang-chu?page=1&maxPageItem=100&sortName=title&sortBy=asc&category=1"/>' class="list-group-item">Đồ ăn nhanh</a>
-          <a href='<c:url value="/trang-chu?page=1&maxPageItem=100&sortName=title&sortBy=asc&category=2"/>' class="list-group-item">Món chính</a>
-          <a href='<c:url value="/trang-chu?page=1&maxPageItem=100&sortName=title&sortBy=asc&category=3"/>' class="list-group-item">Đồ uống</a>
+          <a href='<c:url value="/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc"/>' class="list-group-item list-group-item-action ${active1}">Tất cả</a>
+          <a href='<c:url value="/trang-chu?page=1&maxPageItem=100&sortName=title&sortBy=asc&category=1"/>' class="list-group-item list-group-item-action ${active2}">Đồ ăn nhanh</a>
+          <a href='<c:url value="/trang-chu?page=1&maxPageItem=100&sortName=title&sortBy=asc&category=2"/>' class="list-group-item list-group-item-action ${active3}">Món chính</a>
+          <a href='<c:url value="/trang-chu?page=1&maxPageItem=100&sortName=title&sortBy=asc&category=3"/>' class="list-group-item list-group-item-action ${active4}">Đồ uống</a>
         </div>
 
       </div>
       <!-- /.col-lg-3 -->
-
+	
       <div class="col-lg-9">
-
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -62,16 +65,14 @@
 				              <a href=""><img class="card-img-top" src="data:image/jpg;base64,${item.thumbnail}" alt="Lỗi ảnh"></a>
 				              <div class="card-body">
 				                <h4 class="card-title">
-				                  <a href="">${item.title}</a>
+				                  <a href="" class="title" >${item.title}</a>
 				                </h4>
 				                <h6 class="price">${item.price}</h6>
 				                <p class="card-text">${item.shortDescription}</p>
 				              </div>
 				              <div class="card-footer">
 				                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-				                <a class="nav-link" href='<c:url value="/cart?foodId=${item.id}"/>'>
-				                	<i class="fa fa-cutlery float-right" aria-hidden="true"></i> 
-				                </a>
+									<a href='<c:url value="/cart?foodId=${item.id}"/>' type="button" class="btn btn-outline-primary float-right">Đặt ngay</a>
 				              </div>
 				            </div>
 				          </div>
@@ -85,7 +86,7 @@
 				              <a href=""><img class="card-img-top" src="data:image/jpg;base64,${item.thumbnail}" alt="Lỗi ảnh"></a>
 				              <div class="card-body">
 				                <h4 class="card-title">
-				                  <a href="">${item.title}</a>
+				                  <a href="" class="title">${item.title}</a>
 				                </h4>
 				                <h6 class="price">${item.price}</h6>
 				                <p class="card-text">${item.shortDescription}</p>
@@ -93,10 +94,9 @@
 				              </div>
 				              <div class="card-footer">
 				                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-				                <a class="nav-link" href='<c:url value="/cart?foodId=${item.id}"/>'>
-				                	<i class="fa fa-cutlery float-right" aria-hidden="true"></i> 
-				                </a>
+									<a href='<c:url value="/cart?foodId=${item.id}"/>' type="button" class="btn btn-outline-primary float-right">Đặt ngay</a>
 				              </div>
+				            
 				            </div>
 				          </div>
 						</c:forEach>
@@ -113,10 +113,11 @@
 		
       </div>
       <!-- /.col-lg-9 -->
+      
     </div>
     <!-- /.row -->
-
-    </form>
+</form>
+    
 	<script type="text/javascript">
 		var totalPages = ${model.totalPage};
 		var currentPage = ${model.page};
@@ -146,6 +147,9 @@
 	});
     </script>
 	<style>
+		* {
+			color:black;
+		}
 		.price {
 		    color:red;
 		}

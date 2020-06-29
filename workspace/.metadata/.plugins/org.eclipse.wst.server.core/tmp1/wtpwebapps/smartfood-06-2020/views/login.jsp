@@ -31,7 +31,7 @@
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" href='<c:url value="/dang-ky?action=register"/>'>Register account</a>
     </div>
 
   </div>

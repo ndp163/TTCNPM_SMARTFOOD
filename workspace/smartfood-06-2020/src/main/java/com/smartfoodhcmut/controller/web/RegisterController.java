@@ -20,12 +20,19 @@ public class RegisterController extends HttpServlet {
 	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
 	String DB_CONNECTION_URL="jdbc:mysql://localhost:3306/smartfood062020";
 	String DB_USERNAME="root";
-	String DB_PASSWORD="Dung2000";
+	String DB_PASSWORD="12345687";
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			String alert = request.getParameter("alert");
+			String message = request.getParameter("message");
+			if (alert != null && message != null) {
+				request.setAttribute("message", resourceBundle.getString(message));
+				request.setAttribute("alert", alert);
+			}
 			RequestDispatcher rd = request.getRequestDispatcher("/views/register.jsp");
 			rd.forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			request.setCharacterEncoding("UTF-8");
 			String fullname=request.getParameter("fullname");
 			String username=request.getParameter("username");
 			String password=request.getParameter("password");
@@ -41,12 +48,12 @@ public class RegisterController extends HttpServlet {
 				ps.setInt(5, 2);
 				int i =ps.executeUpdate();
 				if(i>0)
-					response.sendRedirect("http://localhost:8080/dang-nhap?action=login");
+					response.sendRedirect(request.getContextPath()+"/dang-nhap?action=login");
 				else {
 					response.sendError(400);
 				}
 			}catch(Exception ex){
-				response.sendError(HttpServletResponse.SC_BAD_REQUEST,"The username already exists");
+				response.sendRedirect(request.getContextPath()+"/dang-ky?alert=danger&message=not_register");
 		}
 	}
 	}

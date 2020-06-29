@@ -8,7 +8,6 @@
 <title>Đặt món ăn</title>
 </head>
 <body>
-	
     <div class="site-section  pb-0">
       <div class="container">
         <div class="row mb-5 justify-content-center">
@@ -41,15 +40,15 @@
                     </td>
                     <td class="price">${item.price}</td>
                     <td>
-                    	  <a href='<c:url value="/cart?foodId=${item.food.id}&minus=1"/>'>
+                          <a href='<c:url value="/cart?foodId=${item.food.id}&minus=1"/>' type="submit" class="btn">
                           	<i class="fa fa-minus" aria-hidden="true"></i>
                           </a>
-                          <span>&emsp;${item.quantity}&emsp;</span>	
-                          <a href='<c:url value="/cart?foodId=${item.food.id}"/>'>
+                          ${item.quantity}	
+                          <a href='<c:url value="/cart?foodId=${item.food.id}"/>' type="submit" class="btn">
                           	<i class="fa fa-plus" aria-hidden="true"></i>
                           </a>
                     </td>
-                    <td class="price">${item.price*item.quantity}</td>
+                    	<td class="price">${item.price*item.quantity}</td>
                     <td><a href='<c:url value="/cart?removeId=${item.food.id}"/>' class="btn btn-primary height-auto btn-sm">X</a></td>
                   </tr>
         		</c:forEach>

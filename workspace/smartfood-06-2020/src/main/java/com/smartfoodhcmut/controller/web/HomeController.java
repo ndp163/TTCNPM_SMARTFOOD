@@ -61,12 +61,16 @@ public class HomeController extends HttpServlet {
 			request.setAttribute(SystemConstant.MODEL, model);
 			if (category != null && category.equals("1")) {
 				request.setAttribute("category", category);
+				request.setAttribute("active2", "active");
 			} else if (category != null && category.equals("2")) {
+				request.setAttribute("active3", "active");
 				request.setAttribute("category", category);
 			} else if (category != null && category.equals("3")) {
+				request.setAttribute("active4", "active");
 				request.setAttribute("category", category);
 			}
 			else {
+				request.setAttribute("active1", "active");
 				request.setAttribute("category", null);
 			}
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");

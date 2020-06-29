@@ -15,7 +15,7 @@ INSERT INTO foods(title, categoryid) VALUES('Món ăn 2', 1);
 INSERT INTO foods(title, categoryid) VALUES('Món ăn 3', 2);
 INSERT INTO foods(title, categoryid) VALUES('Món ăn 4', 3);
 
-INSERT INTO role(code, name) VALUES('ADMIN', 'Quản trị');
+INSERT INTO role(imagecode, name) VALUES('ADMIN', 'Quản trị');
 INSERT INTO role(code, name) VALUES('USER', 'Người dùng');
 
 INSERT INTO user(username, password, fullname, status, roleid) VALUES('admin', '123456', 'admin1', 1, 1);

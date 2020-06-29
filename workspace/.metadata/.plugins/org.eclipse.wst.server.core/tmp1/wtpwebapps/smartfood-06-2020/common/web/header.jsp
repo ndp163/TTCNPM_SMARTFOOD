@@ -12,17 +12,15 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Trang
-						chủ <span class="sr-only">(current)</span>
-				</a></li>
 				<c:if test="${not empty USERMODEL}">
 					<li class="nav-item">
-						<a class="nav-link" href='#'>Wellcome, ${USERMODEL.fullName}</a>
+						<a href='#' class="nav-link">Wellcome, ${USERMODEL.fullName}</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href='<c:url value="/thoat?action=logout"/>'>Đăng xuất</a>
 					</li>
 				</c:if>
+
 				<c:if test="${empty USERMODEL}">
 					<li class="nav-item">
 						<a class="nav-link" href='<c:url value="/dang-nhap?action=login"/>'>Đăng nhập</a>
@@ -33,7 +31,9 @@
 						<a class="nav-link" href='<c:url value="/dang-ky?action=register"/>'>Đăng ký</a>
 					</li>
 				</c:if>
-				
+				<a class="nav-link" href='<c:url value="/cart"/>'>
+					<h4><i class="fa fa-shopping-cart" aria-hidden="true" style="color:#cccccc"></i></h4>
+				</a>
 			</ul>
 		</div>
 	</div>

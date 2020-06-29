@@ -9,21 +9,13 @@
     <link href="<c:url value='/template/web/bootstrap/css/bootstrap.min.css' />" rel="stylesheet" type="text/css" media="all"/>
     <link href="<c:url value='/template/web/css/style.css' />" rel="stylesheet" type="text/css" media="all"/>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
     <script src="<c:url value='/template/paging/jquery.twbsPagination.js' />"></script>
     <link rel="stylesheet" href="<c:url value='/template/admin/font-awesome/4.5.0/css/font-awesome.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/template/web/fonts/icomoon/style.css' />" />
-    
-    <link rel="stylesheet" href="<c:url value='/template/web/csscart/bootstrap.min.css' />" />
-  	<link rel="stylesheet" href="<c:url value='/template/web/csscart/jquery-ui.css' />" />
-  	<link rel="stylesheet" href="<c:url value='/template/web/csscart/owl.carousel.min.css' />" />
+
   	<link rel="stylesheet" href="<c:url value='/template/web/csscart/owl.theme.default.min.css' />" />
-  	<link rel="stylesheet" href="<c:url value='/template/web/csscart/jquery.fancybox.min.css' />" />
-  	<link rel="stylesheet" href="<c:url value='/template/web/csscart/bootstrap-datepicker.css' />" />
   	<link rel="stylesheet" href="<c:url value='/template/web/fonts/flaticon/font/flaticon.css' />" />
   	<link rel="stylesheet" href="<c:url value='/template/web/csscart/aos.css' />" />
-  	<link href="<c:url value='/template/web/csscart/jquery.mb.YTPlayer.min.css' />" media="all" rel="stylesheet" type="text/css" />
-  	<link rel="stylesheet" href="<c:url value='/template/web/csscart/style.css' />" />
   
     
 </head>

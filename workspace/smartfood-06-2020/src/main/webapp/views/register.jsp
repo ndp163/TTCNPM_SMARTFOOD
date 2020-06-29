@@ -10,6 +10,11 @@
 <div class="wrapper fadeInDown">
 
   <div id="formContent">
+    <c:if test="${not empty message}">
+	    <div class="alert alert-${alert}">
+    		${message}
+  		</div>
+    </c:if>
     <!-- Tabs Titles -->
      
     <!-- Icon -->
