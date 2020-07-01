@@ -51,7 +51,7 @@ public class HomeController extends HttpServlet {
 			SessionUtil.getInstance().removeValue(request, "USERMODEL");
 			SessionUtil.getInstance().removeValue(request, "order");
 			response.sendRedirect(request.getContextPath()+"/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc");
-		} else {				
+		} else {
 			FoodsModel model = FormUtil.toModel(FoodsModel.class, request);
 			Pageble pageble = new PageRequest(model.getPage(), model.getMaxPageItem(),
 					new Sorter(model.getSortName(), model.getSortBy()));
@@ -73,6 +73,8 @@ public class HomeController extends HttpServlet {
 				request.setAttribute("active1", "active");
 				request.setAttribute("category", null);
 			}
+			if (request.getParameter("bill") != null) 
+				SessionUtil.getInstance().removeValue(request, "order");
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 			rd.forward(request, response);
 		}

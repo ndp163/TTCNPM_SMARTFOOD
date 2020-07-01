@@ -105,7 +105,7 @@
 				onPageClick : function(event, page) {
 					if (currentPage != page) {
 						$('#maxPageItem').val(limit);
-						$('#page').val(page);
+						$('#page').val(page); 
 						$('#sortName').val('title');
 						$('#sortBy').val('asc');
 						$('#type').val('list');

@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
-<fullyQualifiedTypeName name="org.omg.CORBA.Request"/>
-<fullyQualifiedTypeName name="com.smartfoodhcmut.model.UserModel"/>
-<fullyQualifiedTypeName name="com.smartfoodhcmut.model.AbstractModel"/>
-<fullyQualifiedTypeName name="com.smartfoodhcmut.service.INewsService"/>
-<fullyQualifiedTypeName name="javax.swing.tree.RowMapper"/>
-<fullyQualifiedTypeName name="com.smartfoodhcmut.mapper.RowMapper"/>
-<fullyQualifiedTypeName name="com.smartfoodhcmut.dao.IFoodsDAO"/>
-<fullyQualifiedTypeName name="com.smartfoodhcmut.dao.GenericDAO"/>
-<fullyQualifiedTypeName name="java.sql.Timestamp"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
 <fullyQualifiedTypeName name="javax.inject.Inject"/>
 <fullyQualifiedTypeName name="com.smartfoodhcmut.service.IFoodsService"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="org.apache.commons.beanutils.BeanUtils"/>
 <fullyQualifiedTypeName name="com.smartfoodhcmut.utils.SessionUtil"/>
 <fullyQualifiedTypeName name="com.smartfoodhcmut.constant.SystemConstant"/>
@@ -25,7 +12,6 @@
 <fullyQualifiedTypeName name="com.smartfoodhcmut.dao.ICategoryDAO"/>
 <fullyQualifiedTypeName name="com.smartfoodhcmut.dao.impl.CategoryDAO"/>
 <fullyQualifiedTypeName name="com.smartfoodhcmut.model.CategoryModel"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
 <fullyQualifiedTypeName name="com.smartfoodhcmut.utils.MessageUtil"/>
 <fullyQualifiedTypeName name="javax.servlet.annotation.MultipartConfig"/>
@@ -45,4 +31,33 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.smartfoodhcmut.model.Items"/>
 <fullyQualifiedTypeName name="com.smartfoodhcmut.model.Item"/>
+<fullyQualifiedTypeName name="com.mservice.shared.utils.LogUtils"/>
+<fullyQualifiedTypeName name="com.smartfoodhcmut.service.momo.shared.utils.LogUtils"/>
+<fullyQualifiedTypeName name="com.smartfoodhcmut.service.momo.shared.utils.Encoder"/>
+<fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="com.mservice.shared.sharedmodels.Environment"/>
+<fullyQualifiedTypeName name="com.mservice.allinone.models.PayATMResponse"/>
+<fullyQualifiedTypeName name="com.mservice.allinone.processor.allinone.PayATM"/>
+<fullyQualifiedTypeName name="com.mservice.allinone.processor.allinone.RefundStatus"/>
+<fullyQualifiedTypeName name="com.mservice.shared.constants.RequestType"/>
+<fullyQualifiedTypeName name="com.mservice.pay.models.TransactionQueryResponse"/>
+<fullyQualifiedTypeName name="com.mservice.pay.processor.notallinone.TransactionQuery"/>
+<fullyQualifiedTypeName name="com.mservice.pay.processor.notallinone.TransactionRefund"/>
+<fullyQualifiedTypeName name="com.mservice.pay.models.TransactionRefundResponse"/>
+<fullyQualifiedTypeName name="com.mservice.shared.sharedmodels.Environment.ProcessType"/>
+<fullyQualifiedTypeName name="com.mservice.pay.models.POSPayResponse"/>
+<fullyQualifiedTypeName name="com.mservice.pay.processor.notallinone.POSPay"/>
+<fullyQualifiedTypeName name="com.mservice.shared.constants.Parameter"/>
+<fullyQualifiedTypeName name="com.mservice.pay.processor.notallinone.PayConfirmation"/>
+<fullyQualifiedTypeName name="com.mservice.allinone.models.CaptureMoMoResponse"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.google.gson.Gson"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="com.mservice.shared.sharedmodels.PartnerInfo"/>
+<fullyQualifiedTypeName name="com.mservice.shared.utils.Encoder"/>
+<fullyQualifiedTypeName name="com.mservice.pay.Pay"/>
 </qualifiedTypeNameHistroy>

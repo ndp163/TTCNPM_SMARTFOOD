@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-    
+<c:url var ="CartURL" value="/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,59 +62,59 @@
     </div>
 
     <div class="site-section pt-5 bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="row mb-5">
-              <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-md btn-block">Cập nhật</button>
-              </div>
-              <div class="col-md-6">
-                <a href='<c:url value="/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc"/>'>
-                	<button class="btn btn-outline-primary btn-md btn-block" >Tiếp tục đặt món</button>
+     
+	<center>
+		<h3 style="color:#930077">Tổng tiền:&emsp;&emsp; <span class="price total">${order.total()}</span></h3>
+		<br>&nbsp;
+		<br>
+		<br>
+    	        <a href='<c:url value="/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc"/>'>
+                	<button class="btn btn-outline-primary btn-md" >Tiếp tục đặt món</button>&emsp;&emsp;&emsp;&emsp;&emsp;
                 </a>
-              </div>
-            </div>
+                    <button id="btt" class="btn btn-primary btn-lg" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Thanh toán</button> 
+	</center>                 
+					<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					  <div class="modal-dialog modal-dialog-centered" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <h5 class="modal-title" id="exampleModalLongTitle">Thanh toán</h5>
+					        <button class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      
+					      <c:if test="${not empty USERMODEL}">
+					      <div class="modal-body">
+					      		<center><h4>QR Code Momo</h4></center>
+					        	<center><img src="data:image/jpg;base64,${base64}" alt="Xin vui lòng thử lại"></center>
+					      </div>
+					      <div class="modal-footer">
+					      	<a href='<c:url value="/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc&bill=success"/>'>
+					      		<button type="button" class="btn btn-primary" id="btt">Xác nhận</button>
+					      	</a>
+					      </div>
+					        </c:if>
+					       	<c:if test="${empty USERMODEL}">
+					       	<div class="modal-body">
+					       		<center><h4>Xin vui lòng đăng nhập và chọn món!</h4></center>
+					       	</div>
+					       	</c:if>
 
-          </div>
-          <div class="col-md-6 pl-5">
-            <div class="row justify-content-end">
-              <div class="col-md-7">
-                <div class="row">
-                  <div class="col-md-9 text-right border-bottom mb-5">
-                     <h3><span style="color:#930077">Tổng tiền: </span></h3>
-                  </div>
+					    </div>
+					  </div>
+
                 </div>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <span class="text-black"></span>
-                  </div>
-                </div>
-                <div class="row mb-5">
-                  <div class="col-md-9 text-right">
-                    <h3><strong class="price total">${order.total()}</strong></h3>
-                  </div>
-                </div>
-    
-                <div class="row">
-                  <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg btn-block" href="#">Thanh toán</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+			
     </div>
-    <script>
+    <script type="text/javascript">
     $('.price').each(function () {   
 	    var item = $(this).text();
 	    var num = Number(item).toLocaleString('en');
 	    $(this).text(num);
-	});
+	}); 
     </script>
-    	<style>
+    
+   	<style>
 		.price.total {
 		    color:red;
 		}

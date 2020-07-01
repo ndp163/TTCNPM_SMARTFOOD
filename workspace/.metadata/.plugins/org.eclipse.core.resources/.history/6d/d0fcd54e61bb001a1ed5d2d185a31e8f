@@ -1,0 +1,53 @@
+package com.smartfoodhcmut.controller.admin.api;
+
+
+
+
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.mservice.allinone.models.CaptureMoMoResponse;
+import com.mservice.allinone.models.PayGateResponse;
+import com.mservice.allinone.models.QueryStatusTransactionResponse;
+import com.mservice.allinone.processor.allinone.CaptureMoMo;
+import com.mservice.allinone.processor.allinone.PaymentResult;
+import com.mservice.allinone.processor.allinone.QueryStatusTransaction;
+import com.mservice.shared.sharedmodels.Environment;
+import com.mservice.shared.utils.LogUtils;
+
+
+
+@WebServlet("/payment")
+public class PaymentAPI extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+      
+		 String data = "Ha noi mua thu";
+		 QRCodeWriter qrCodeWriter = new QRCodeWriter();
+		 BitMatrix matrix = qrCodeWriter.encode(data, BarcodeFormat.QR_CODE, 200, 200);
+		 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		 MatrixToImageWriter.writeToStream(matrix, "PNG", outputStream);
+		 byte[] pngByteArray = outputStream.toByteArray();
+	}
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+
+	}
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+
+	}
+
+}
