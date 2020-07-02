@@ -68,15 +68,19 @@
 		<br>&nbsp;
 		<br>
 		<br>
+			<c:if test="${not empty USERMODEL}">
+			<form action="payment" method="post">
     	        <a href='<c:url value="/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc"/>'>
                 	<button class="btn btn-outline-primary btn-md" >Tiếp tục đặt món</button>&emsp;&emsp;&emsp;&emsp;&emsp;
                 </a>
-                <c:if test="${not empty USERMODEL}">
-                <form action="payment" method="post">
-                    <button id="btt" class="btn btn-primary btn-lg" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Thanh toán</button> 
-				</form>
-				</c:if>
+                    <button id="btt" class="btn btn-primary btn-lg" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Thanh toán</button> 	
+				
+			</form>
+			</c:if>
 				<c:if test="${empty USERMODEL}">
+    	        <a href='<c:url value="/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc"/>'>
+                	<button class="btn btn-outline-primary btn-md" >Tiếp tục đặt món</button>&emsp;&emsp;&emsp;&emsp;&emsp;
+                </a>				
 					<button id="btt" class="btn btn-primary btn-lg" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Thanh toán</button>
 				</c:if>
 	</center>       

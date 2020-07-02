@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="site-section pt-5 bg-light"/>
+		<item key="selection" value="form"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="form"/>
 			<item value="site-section pt-5 bg-light"/>
 			<item value="junit"/>
 			<item value="        &lt;dependency&gt;&#x0A;            &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;&#x0A;            &lt;artifactId&gt;junit-jupiter&lt;/artifactId&gt;&#x0A;            &lt;version&gt;5.5.0-RC1&lt;/version&gt;&#x0A;            &lt;scope&gt;test&lt;/scope&gt;&#x0A;        &lt;/dependency&gt;"/>
@@ -22,7 +23,6 @@
 			<item value="commons-io"/>
 			<item value="gson"/>
 			<item value="okhttp"/>
-			<item value="submit"/>
 		</list>
 		<list key="replacehistory">
 		</list>
