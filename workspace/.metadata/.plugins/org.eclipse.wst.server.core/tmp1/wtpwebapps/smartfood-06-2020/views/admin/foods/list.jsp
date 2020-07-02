@@ -47,14 +47,14 @@
 								<div class="col-xs-12">
 									<div class="table-responsive">
 									<br />
-										<table class="table table-hover">
-											<thead>
+										<table class="table table-hover table-bordered">
+											<thead class="thead-light">
 												<tr>
 													<th width="20"><input type="checkbox" id="checkAll"></th>
 													<th width="300">Tên món ăn</th>
-													<th width="250">Giá</th>
-													<th width="565">Mô tả</th>
-													<th>Chỉnh sửa</th>
+													<th width="150">Giá</th>
+													<th width="630">Mô tả</th>
+													<th width="100">Chỉnh sửa</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -69,9 +69,11 @@
 																	<c:param name="type" value="edit"/>
 																	<c:param name="id" value="${item.id}"/>
 															</c:url>
+															<center>
 															<a class="btn btn-sm btn-primary btn-edit"
 															data-toggle="tooltip" title="Cập nhật món ăn"
 															href='${editURL}'><i class="fa fa-pencil" aria-hidden="true"></i> </a>
+														</center>
 														</td>
 													</tr>
 												</c:forEach>

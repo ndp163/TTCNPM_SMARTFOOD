@@ -1,0 +1,75 @@
+package com.smartfoodhcmut.controller.admin.api;
+
+
+
+
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.mservice.allinone.models.CaptureMoMoResponse;
+import com.mservice.allinone.models.PayGateResponse;
+import com.mservice.allinone.models.QueryStatusTransactionResponse;
+import com.mservice.allinone.processor.allinone.CaptureMoMo;
+import com.mservice.allinone.processor.allinone.PaymentResult;
+import com.mservice.allinone.processor.allinone.QueryStatusTransaction;
+import com.mservice.shared.sharedmodels.Environment;
+import com.mservice.shared.utils.LogUtils;
+
+
+
+@WebServlet("/payment")
+public class PaymentAPI extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+        LogUtils.init();
+        String requestId = String.valueOf(System.currentTimeMillis());
+        String orderId = String.valueOf(System.currentTimeMillis());
+        long amount = 50000;
+
+        String orderInfo = "Pay With MoMo";
+        String returnURL = "https://google.com.vn";
+        String notifyURL = "https://google.com.vn";
+        String extraData = "abc";
+        String bankCode = "SML";
+
+        Environment environment = Environment.selectEnv("dev", Environment.ProcessType.PAY_GATE);
+
+
+//      Remember to change the IDs at enviroment.properties file
+
+//        Payment Method- PhÆ°Æ¡ng thá»©c thanh toÃ¡n
+        CaptureMoMoResponse captureMoMoResponse;
+		try {
+			captureMoMoResponse = CaptureMoMo.process(environment, orderId, requestId, Long.toString(amount), orderInfo, returnURL, notifyURL, "");
+	        String url = captureMoMoResponse.getPayUrl();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+        
+        QueryStatusTransactionResponse queryStatusTransactionResponse = QueryStatusTransaction.process(environment, orderId, requestId);
+
+//      Process Payment Result - Xá»­ lÃ½ káº¿t quáº£ thanh toÃ¡n
+        PayGateResponse payGateResponse = PaymentResult.process(environment,new PayGateResponse());
+
+    }
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+
+	}
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+
+	}
+
+}

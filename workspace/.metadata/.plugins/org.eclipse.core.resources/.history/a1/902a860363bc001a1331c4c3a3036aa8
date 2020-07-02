@@ -1,0 +1,44 @@
+package com.smartfoodhcmut.controller.admin.api;
+
+
+
+
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.mservice.allinone.models.CaptureMoMoResponse;
+import com.mservice.allinone.models.PayGateResponse;
+import com.mservice.allinone.models.QueryStatusTransactionResponse;
+import com.mservice.allinone.processor.allinone.CaptureMoMo;
+import com.mservice.allinone.processor.allinone.PaymentResult;
+import com.mservice.allinone.processor.allinone.QueryStatusTransaction;
+import com.mservice.shared.sharedmodels.Environment;
+import com.mservice.shared.utils.LogUtils;
+
+
+
+@WebServlet("/payment")
+public class PaymentAPI extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+
+    }
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+
+	}
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+
+	}
+
+}

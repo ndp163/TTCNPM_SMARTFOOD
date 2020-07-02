@@ -1,9 +1,7 @@
 package com.smartfoodhcmut.controller.web;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 
 import javax.crypto.Mac;
@@ -19,10 +17,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.binary.Hex;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.QRCodeWriter;
 import com.smartfoodhcmut.model.FoodsModel;
 import com.smartfoodhcmut.model.Item;
 import com.smartfoodhcmut.model.OrderModel;
@@ -95,24 +89,6 @@ public class CartController extends HttpServlet {
 			order.removeItemById(rmId);
 			session.setAttribute("order", order);
 		}
-		if (order != null) {
-			try {
-				String billId = "SFBKU-" + getAlphaNumericString(10);
-				String signature = encode("3gtsoyPAYWlwH1sYZeGrlb4H1X1O1Ldw", "storeSlug=MOMOSQPD20200630-1&amount="+ order.total() + "&billId=" + billId);
-				String data = "https://test-payment.momo.vn/pay/store/MOMOSQPD20200630-1?a=" + order.total() + "&b=" + billId + "&s=" + signature;
-				QRCodeWriter qrCodeWriter = new QRCodeWriter();
-				BitMatrix matrix;
-				matrix = qrCodeWriter.encode(data, BarcodeFormat.QR_CODE, 200, 200);
-				ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-				MatrixToImageWriter.writeToStream(matrix, "PNG", outputStream);
-				byte[] pngByteArray = outputStream.toByteArray();
-				String base64Image = Base64.getEncoder().encodeToString(pngByteArray);
-				request.setAttribute("base64", base64Image);
-				
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/cart/cart.jsp");
 		rd.forward(request, response);
@@ -128,21 +104,5 @@ public class CartController extends HttpServlet {
 	     sha256_HMAC.init(secret_key);
 	     return Hex.encodeHexString(sha256_HMAC.doFinal(data.getBytes("UTF-8")));
 	}
-	
-	static String getAlphaNumericString(int n) { 
-        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                    + "0123456789"
-                                    + "abcdefghijklmnopqrstuvxyz"; 
-        StringBuilder sb = new StringBuilder(n); 
-  
-        for (int i = 0; i < n; i++) { 
-            int index 
-                = (int)(AlphaNumericString.length() 
-                        * Math.random()); 
-            sb.append(AlphaNumericString 
-                          .charAt(index)); 
-        } 
-  
-        return sb.toString(); 
-    } 
+
 }

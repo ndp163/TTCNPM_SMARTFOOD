@@ -71,40 +71,26 @@
     	        <a href='<c:url value="/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc"/>'>
                 	<button class="btn btn-outline-primary btn-md" >Tiếp tục đặt món</button>&emsp;&emsp;&emsp;&emsp;&emsp;
                 </a>
+                <c:if test="${not empty USERMODEL}">
+                <form action="payment" method="post">
                     <button id="btt" class="btn btn-primary btn-lg" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Thanh toán</button> 
-	</center>                 
+				</form>
+				</c:if>
+				<c:if test="${empty USERMODEL}">
+					<button id="btt" class="btn btn-primary btn-lg" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Thanh toán</button>
+				</c:if>
+	</center>       
+				<c:if test="${empty USERMODEL}">          
 					<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 					  <div class="modal-dialog modal-dialog-centered" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h5 class="modal-title" id="exampleModalLongTitle">Thanh toán</h5>
-					        <button class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-					      </div>
-					      
-					      <c:if test="${not empty USERMODEL}">
-					      <div class="modal-body">
-					      		<center><h4>QR Code Momo</h4></center>
-					        	<center><img src="data:image/jpg;base64,${base64}" alt="Xin vui lòng thử lại"></center>
-					      </div>
-					      <div class="modal-footer">
-					      	<a href='<c:url value="/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc&bill=success"/>'>
-					      		<button type="button" class="btn btn-primary" id="btt">Xác nhận</button>
-					      	</a>
-					      </div>
-					        </c:if>
-					       	<c:if test="${empty USERMODEL}">
+					    <div class="modal-content">  	
 					       	<div class="modal-body">
 					       		<center><h4>Xin vui lòng đăng nhập và chọn món!</h4></center>
 					       	</div>
-					       	</c:if>
-
 					    </div>
 					  </div>
-
                 </div>
-			
+				</c:if>
     </div>
     <script type="text/javascript">
     $('.price').each(function () {   
