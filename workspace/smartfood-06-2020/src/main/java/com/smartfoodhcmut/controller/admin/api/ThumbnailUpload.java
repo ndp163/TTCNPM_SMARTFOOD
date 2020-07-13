@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Base64;
+import java.util.ResourceBundle;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -28,11 +29,11 @@ public class ThumbnailUpload extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		ResourceBundle resourceBundle = ResourceBundle.getBundle("db");
 		Connection conn = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/smartfood062020", "root", "12345687");
+			Class.forName(resourceBundle.getString("driverName"));
+			conn = DriverManager.getConnection(resourceBundle.getString("url"), resourceBundle.getString("user"), resourceBundle.getString("password"));
 			conn.setAutoCommit(false);
 			
 			Part part = request.getPart("thumbnail");

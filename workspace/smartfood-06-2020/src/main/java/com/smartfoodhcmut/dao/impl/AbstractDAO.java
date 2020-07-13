@@ -1,6 +1,5 @@
 package com.smartfoodhcmut.dao.impl;
 
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

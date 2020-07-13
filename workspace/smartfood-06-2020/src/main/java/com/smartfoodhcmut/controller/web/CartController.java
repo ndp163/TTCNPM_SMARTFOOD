@@ -59,7 +59,7 @@ public class CartController extends HttpServlet {
 					for (Item item : listItems) {
 						if (item.getFood().getId() == food.getId()) {
 							if (request.getParameter("minus") != null) {
-								if (item.getQuantity() > 0)
+								if (item.getQuantity() > 1)
 									item.setQuantity(item.getQuantity() - 1);
 							} else {
 								item.setQuantity(item.getQuantity() + 1);

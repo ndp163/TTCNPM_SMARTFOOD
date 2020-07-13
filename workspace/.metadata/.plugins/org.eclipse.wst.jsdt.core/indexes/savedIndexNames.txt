@@ -1,8 +1,5 @@
-INDEX VERSION 1.4+D:\SmartFood-version-2\CNPM-SmartFood-master\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2219386833.index
-3428963139.index
-1284346248.index
-3556720350.index
-1604037378.index
-4261123434.index
-3552737043.index
+INDEX VERSION 1.4+D:\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+491784667.index
+3325098028.index
+3793343808.index
+1541496810.index

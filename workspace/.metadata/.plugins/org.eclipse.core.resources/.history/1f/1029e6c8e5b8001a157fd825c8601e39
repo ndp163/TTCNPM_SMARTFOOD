@@ -1,6 +1,0 @@
-package com.smartfoodhcmut.model;
-
-public class Items {
-	private int id;
-	private FoodsModel food;
-}

@@ -45,6 +45,8 @@
 						<div class="col-xs-12">
 							<div class="row">
 								<div class="col-xs-12">
+									<br >
+									<input class="form-control" id="myInput" type="text" placeholder="Search..">
 									<div class="table-responsive">
 									<br />
 										<table class="table table-hover table-bordered">
@@ -57,7 +59,7 @@
 													<th width="100">Chỉnh sửa</th>
 												</tr>
 											</thead>
-											<tbody>
+											<tbody id="myTable">
 												<c:forEach var="item" items="${model.listResult}">
 													<tr>
 														<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
@@ -144,6 +146,16 @@
 			    var num = Number(item).toLocaleString('en');
 			    $(this).text(num);
 			});
+		    
+		    $(document).ready(function(){
+		    	  $("#myInput").on("keyup", function() {
+		    	    var value = $(this).val().toLowerCase();
+		    	    $("#myTable tr").filter(function() {
+		    	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		    	    });
+		    	  });
+		    	});
 	</script>
+
 </body>
 </html>
