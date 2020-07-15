@@ -29,7 +29,7 @@
 	                                <div class="col-sm-9">
 	                                    <!-- <input type="text" class="form-control" id="thumbnail" name="thumbnail" value="${model.thumbnail}"/> -->
 	                                    <td>Choose a image :</td>
-	                        			<td><input type="file" class="form-control" id="thumbnail" name="thumbnail" /></td>
+	                        			<td><input type="file" class="form-control" id="thumbnail" name="thumbnail"/></td>
 	                        			<input type="hidden" id="idThumbnail" name="idThumbnail" value="${model.id}" />
 	                        			<input type="submit" value="Xác nhận ảnh">
 	                                </div>

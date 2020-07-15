@@ -1,6 +1,9 @@
 package com.smartfoodhcmut.controller.web;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
 import javax.inject.Inject;
@@ -36,9 +39,19 @@ public class HomeController extends HttpServlet {
 	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		
 		String action = request.getParameter("action");
+		String search = request.getParameter("Search");
 		String category = request.getParameter("category");
-		if (action != null && action.equals("login")) {
+		if (search != null) {
+			FoodsModel model = FormUtil.toModel(FoodsModel.class, request);
+			model.setListResult(foodsService.findBySearch(search));
+			request.setAttribute(SystemConstant.MODEL, model);
+			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
+			rd.forward(request, response);
+		}
+		else if (action != null && action.equals("login")) {
 			String alert = request.getParameter("alert");
 			String message = request.getParameter("message"); 
 			if (message != null && alert != null) {
@@ -78,6 +91,7 @@ public class HomeController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 			rd.forward(request, response);
 		}
+
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -92,7 +106,7 @@ public class HomeController extends HttpServlet {
 				if (model.getRole().getCode().equals("USER")) {
 					response.sendRedirect(request.getContextPath()+"/trang-chu?page=1&maxPageItem=6&sortName=title&sortBy=asc");
 				} else if (model.getRole().getCode().equals("ADMIN")) {
-					response.sendRedirect(request.getContextPath()+"/admin-foods?type=list&page=1&maxPageItem=6&sortName=id&sortBy=asc");
+					response.sendRedirect(request.getContextPath()+"/admin-foods?type=list&page=1&maxPageItem=6&sortName=title&sortBy=asc");
 				}
 			} else {
 				response.sendRedirect(request.getContextPath()+"/dang-nhap?action=login&message=username_password_invalid&alert=danger");

@@ -8,12 +8,13 @@
 
 </head>
 <body>
+
 <form action="<c:url value='/trang-chu'/>" id="formSubmit" method="get">
       	<br>
 		<br>
 		<br>
+	
     <div class="row">
-    
       <div class="col-lg-3 list-group">
         <h1 class="my-4" style="color:black">Loại món ăn</h1>
         <div class="list-group">
@@ -25,8 +26,11 @@
 
       </div>
       <!-- /.col-lg-3 -->
-	
       <div class="col-lg-9">
+      	<div class="md-form mt-0">
+		  <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="Search">
+		</div> 
+		
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -53,7 +57,9 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
+	
 
+		
         <div class="row">
         	  <c:set var="val" value="${category}"/>
               <c:choose>
@@ -79,6 +85,7 @@
 				         </c:if>
 						</c:forEach>
 					</c:when>
+					
 					<c:otherwise>
     					<c:forEach var="item" items="${model.listResult}">
 						  <div class="col-lg-4 col-md-6 mb-4">
@@ -145,6 +152,9 @@
 	    var num = Number(item).toLocaleString('en');
 	    $(this).text(num);
 	});
+    
+    
+
     </script>
 	<style>
 		* {
@@ -156,6 +166,7 @@
 		.price::after {
 		    content:'đ';
 		}
+
 	</style>
 </body>
 </html>

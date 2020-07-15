@@ -12,5 +12,6 @@ public interface IFoodsDAO extends GenericDAO<FoodsModel> {
 	void update(FoodsModel updateFoods);
 	void delete(long id);
 	List<FoodsModel> findAll(Pageble pageble);
+	List<FoodsModel> findBySearch(String search);
 	int getTotalItem();
 }

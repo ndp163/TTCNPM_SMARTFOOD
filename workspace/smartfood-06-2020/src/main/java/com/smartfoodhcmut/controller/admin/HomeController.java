@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = {"/admin-foods?type=list&page=1&maxPageItem=6&sortName=id&sortBy=asc"})
+@WebServlet(urlPatterns = {"/admin-foods?page=1&maxPageItem=6&sortName=title&sortBy=asc&type=list"})
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;

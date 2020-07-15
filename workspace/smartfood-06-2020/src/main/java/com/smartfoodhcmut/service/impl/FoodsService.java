@@ -61,6 +61,12 @@ public class FoodsService implements IFoodsService {
 	}
 
 	@Override
+	public List<FoodsModel> findBySearch(String search) {
+		return foodsDao.findBySearch(search);
+	}
+	
+	
+	@Override
 	public int getTotalItem() {
 		return foodsDao.getTotalItem();
 	}

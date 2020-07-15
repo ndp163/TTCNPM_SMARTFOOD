@@ -1,0 +1,78 @@
+package com.smartfoodhcmut.dao.impl;
+
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.smartfoodhcmut.dao.IFoodsDAO;
+import com.smartfoodhcmut.mapper.FoodsMapper;
+import com.smartfoodhcmut.model.FoodsModel;
+import com.smartfoodhcmut.paging.Pageble;
+
+public class FoodsDAO extends AbstractDAO<FoodsModel> implements IFoodsDAO {
+	
+	@Override
+	public List<FoodsModel> findByCategoryId(Long categoryId) {
+		String sql = "SELECT * FROM foods WHERE categoryid = ?";
+		return query(sql, new FoodsMapper(), categoryId);
+	}
+
+	@Override
+	public Long save(FoodsModel foodsModel) {
+		StringBuilder sql = new StringBuilder("INSERT INTO foods (title, content,");
+		sql.append(" thumbnail, shortdescription, price, categoryid, createddate, createdby)");
+		sql.append(" VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+		return insert(sql.toString(), foodsModel.getTitle(), foodsModel.getContent(), 
+				foodsModel.getThumbnail(), foodsModel.getShortDescription(), foodsModel.getPrice(),
+				foodsModel.getCategoryId(), foodsModel.getCreatedDate(), foodsModel.getCreatedBy());
+	}
+
+	@Override
+	public FoodsModel findOne(Long id) {
+		String sql = "SELECT * FROM foods WHERE id = ?";
+		List<FoodsModel> foods = query(sql, new FoodsMapper(), id);
+		return foods.isEmpty() ? null : foods.get(0);
+	}
+
+	@Override
+	public void update(FoodsModel updateFoods) {
+		StringBuilder sql = new StringBuilder("UPDATE foods SET title = ?, thumbnail = ?,");
+		sql.append(" shortdescription = ?, content = ?, categoryid = ?,");
+		sql.append(" createddate = ?, createdby = ?, price = ?, modifieddate = ?, modifiedby = ? WHERE id = ?");
+		update(sql.toString(), updateFoods.getTitle(), updateFoods.getThumbnail(), updateFoods.getShortDescription(),
+				updateFoods.getContent(), updateFoods.getCategoryId(), updateFoods.getCreatedDate(),
+				updateFoods.getCreatedBy(), updateFoods.getPrice(), updateFoods.getModifiedDate(), 
+				updateFoods.getModifiedBy(),updateFoods.getId());
+	}
+
+	@Override
+	public void delete(long id) {
+		String sql = "DELETE FROM foods WHERE id = ?";
+		update(sql, id);
+	}
+
+	@Override
+	public List<FoodsModel> findAll(Pageble pageble) {
+		StringBuilder sql = new StringBuilder("SELECT * FROM foods");
+		if (pageble.getSorter() != null && StringUtils.isNotBlank(pageble.getSorter().getSortName()) && StringUtils.isNotBlank(pageble.getSorter().getSortBy())) {
+			sql.append(" ORDER BY " + pageble.getSorter().getSortName() + " " + pageble.getSorter().getSortBy());
+		}
+		if (pageble.getOffset() != null && pageble.getLimit() != null) {
+			sql.append(" LIMIT " + pageble.getOffset() + ", " + pageble.getLimit());
+		}
+		return query(sql.toString(), new FoodsMapper());	
+	}
+
+	@Override
+	public List<FoodsModel> findBySearch(String search) {
+		String sql = "SELECT * FROM foods WHERE UPPER(title) LIKE %" + search.toUpperCase() + "%";
+		return query(sql.toString(), new FoodsMapper());	
+	}
+	
+	@Override
+	public int getTotalItem() {
+		String sql = "SELECT count(*) FROM foods";
+		return count(sql);
+	}
+
+}

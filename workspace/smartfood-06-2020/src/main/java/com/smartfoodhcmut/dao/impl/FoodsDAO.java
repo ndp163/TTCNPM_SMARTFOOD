@@ -64,6 +64,12 @@ public class FoodsDAO extends AbstractDAO<FoodsModel> implements IFoodsDAO {
 	}
 
 	@Override
+	public List<FoodsModel> findBySearch(String search) {
+		String sql = "SELECT * FROM foods WHERE UPPER(title) LIKE '%" + search.toUpperCase() + "%'";
+		return query(sql.toString(), new FoodsMapper());	
+	}
+	
+	@Override
 	public int getTotalItem() {
 		String sql = "SELECT count(*) FROM foods";
 		return count(sql);

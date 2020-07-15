@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="form"/>
+		<item key="selection" value="SortName"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="sortName"/>
+			<item value="val"/>
+			<item value="search for som"/>
+			<item value="search for"/>
+			<item value="search"/>
+			<item value="sear"/>
 			<item value="form"/>
 			<item value="site-section pt-5 bg-light"/>
 			<item value="junit"/>
@@ -17,12 +23,6 @@
 			<item value="ossrh"/>
 			<item value="google"/>
 			<item value="maven-compiler-plugin"/>
-			<item value="android"/>
-			<item value="log4j"/>
-			<item value="junit-jupiter"/>
-			<item value="commons-io"/>
-			<item value="gson"/>
-			<item value="okhttp"/>
 		</list>
 		<list key="replacehistory">
 		</list>
